@@ -1,0 +1,8 @@
+Rails app with slugs.
+
+model: favs
+
+manage favorites urls, with title and description about this.
+
+the title is converted into a slug, the url format is fav/:slug/:id
+

@@ -1,0 +1,21 @@
+
+
+
+<h1>Favs:</h1>
+<% if @pagina %>
+<p class="numberpage">Page: <%= @pagina %></p>
+<% end %>
+<p><%= link_to 'New Fav', new_fav_path, :class => 'boton3d' %></p>
+
+<% @favs.each do |fav| %>
+<div class="boxfav">
+<h2><%= link_to fav.title, viewfav_path(fav.slug,fav.id) ,:class => "titlefav"%></h2>
+<p class="urlfav">Url: <%= link_to fav.url, fav.url %></p>
+<p><%= fav.description %></p>
+<p class="optionsfav">
+  <%= link_to 'Edit', edit_fav_path(fav) %>
+  <%= link_to 'Destroy', fav, confirm: 'Are you sure?', method: :delete %>
+</p>
+</div>
+<% end %>
+<%= will_paginate @favs, :class => 'apple_pagination' %>
